@@ -8,3 +8,12 @@ services:
     ports:
       - 15672:15672
       - 5672:5672
+  arremate_intensao:
+    image: postgres
+    environment:
+      - DATABASE_HOST=localhost
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=intensaobd
+    ports:
+      - 5432:5432

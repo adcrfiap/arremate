@@ -1,31 +1,38 @@
 package br.com.fiap.arremate.msintensao.entities;
 
-import br.com.fiap.arremate.msintensao.entities.comprador.Comprador;
-import br.com.fiap.arremate.msintensao.entities.produto.Produto;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Generated;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
+import javax.persistence.Id;
 
+@NoArgsConstructor
 @Data
-@Document(collection = "intensoes")
+@Entity(name = "INTENSAO")
 public class Intensao {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idIntensao;
 
-    private Produto produto;
+    private String idProduto;
+//    private Produto produto;
 
     private String descricao;
 
     private BigDecimal valorEstimado;
 
-    private Comprador comprador;
+    private String idComprador;
+//    private Comprador comprador;
 
-    @CreatedDate
-    private Date date;
+    private LocalDate data;
 
 }
