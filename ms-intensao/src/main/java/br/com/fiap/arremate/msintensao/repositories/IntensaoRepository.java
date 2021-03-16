@@ -1,7 +1,11 @@
 package br.com.fiap.arremate.msintensao.repositories;
 
 import br.com.fiap.arremate.msintensao.entities.Intensao;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface IntensaoRepository extends MongoRepository<Intensao, String> {
+@Repository
+public interface IntensaoRepository extends JpaRepository<Intensao, Long> {
+
+    Intensao findByIdIntensao(Long id);
 }

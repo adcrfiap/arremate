@@ -23,7 +23,7 @@ public class IntensaoController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public IntensaoDTO listarPorId(String id){
+    public IntensaoDTO listarPorId(@PathVariable Long id){
         return intensaoService.listarPorId(id);
     }
 
@@ -33,15 +33,15 @@ public class IntensaoController {
         return intensaoService.cadastrar(intensaoDTO);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void editar(@PathVariable String id,@RequestBody IntensaoDTO intensaoDTO){
+    public void editar(@PathVariable Long id, @RequestBody IntensaoDTO intensaoDTO){
         intensaoService.editar(id, intensaoDTO);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletar(@PathVariable String id, @RequestBody IntensaoDTO intensaoDTO){
-        intensaoService.deletar(id, intensaoDTO);
+    public void deletar(@PathVariable Long id){
+        intensaoService.deletar(id);
     }
 }

@@ -8,11 +8,11 @@ public interface IntensaoService {
 
     List<IntensaoDTO> listar();
 
-    IntensaoDTO listarPorId(String id);
+    IntensaoDTO listarPorId(Long id);
 
     IntensaoDTO cadastrar(IntensaoDTO intensaoDTO);
 
-    void editar(String id, IntensaoDTO intensaoDTO);
+    void editar(Long id, IntensaoDTO intensaoDTO);
 
-    void deletar(String id, IntensaoDTO intensaoDTO);
+    void deletar(Long id);
 }

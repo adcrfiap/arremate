@@ -1,13 +1,20 @@
 package br.com.fiap.arremate.msintensao.dtos.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class IntensaoDTO {
+
+    private Long idIntensao;
 
     private String idProduto;
 
@@ -17,6 +24,6 @@ public class IntensaoDTO {
 
     private String idComprador;
 
-    @CreatedDate
-    private Date date;
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private LocalDate data;
 }
