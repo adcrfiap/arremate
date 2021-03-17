@@ -42,7 +42,7 @@ public class IntensaoServiceImpl implements IntensaoService {
         intensao.setData(LocalDate.now());
         intensaoRepository.save(intensao);
 
-        rabbitTemplate.convertAndSend("direct-exchange-default", "queue-a-key",mapperObj.writeValueAsString(intensaoDTO.getDescricao()));
+        rabbitTemplate.convertAndSend("arremate.exchange", "arremate.routingkey",mapperObj.writeValueAsString(intensaoDTO.getDescricao()));
 
         return mapper.map(intensao, IntensaoDTO.class);
     }
