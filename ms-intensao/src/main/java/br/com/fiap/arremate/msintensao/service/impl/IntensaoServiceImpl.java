@@ -6,6 +6,7 @@ import br.com.fiap.arremate.msintensao.repositories.IntensaoRepository;
 import br.com.fiap.arremate.msintensao.service.IntensaoService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 public class IntensaoServiceImpl implements IntensaoService {
 
     private final IntensaoRepository intensaoRepository;
-    //    private final RabbitTemplate rabbitTemplate;
+    private final RabbitTemplate rabbitTemplate;
     private final ModelMapper mapper;
 
     @Override
@@ -38,7 +39,7 @@ public class IntensaoServiceImpl implements IntensaoService {
         Intensao intensao = mapper.map(intensaoDTO, Intensao.class);
         intensao.setData(LocalDate.now());
         intensaoRepository.save(intensao);
-//        rabbitTemplate.convertAndSend("direct-exchange-default", "queue-a-key", intensaoDTO);
+        rabbitTemplate.convertAndSend("direct-exchange-default", "queue-a-key", intensaoDTO);
 
         return mapper.map(intensao, IntensaoDTO.class);
     }
