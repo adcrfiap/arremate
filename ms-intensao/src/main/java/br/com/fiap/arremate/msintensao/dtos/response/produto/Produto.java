@@ -1,4 +1,4 @@
-package br.com.fiap.arremate.msintensao.entities.produto;
+package br.com.fiap.arremate.msintensao.dtos.response.produto;
 
 import lombok.Data;
 
