@@ -1,6 +1,7 @@
 package br.com.fiap.arremate.msintensao.service;
 
 import br.com.fiap.arremate.msintensao.dtos.request.IntensaoDTO;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface IntensaoService {
 
     IntensaoDTO listarPorId(Long id);
 
-    IntensaoDTO cadastrar(IntensaoDTO intensaoDTO);
+    IntensaoDTO cadastrar(IntensaoDTO intensaoDTO) throws JsonProcessingException;
 
     void editar(Long id, IntensaoDTO intensaoDTO);
 

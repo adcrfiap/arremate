@@ -4,6 +4,8 @@ import br.com.fiap.arremate.msintensao.dtos.request.IntensaoDTO;
 import br.com.fiap.arremate.msintensao.entities.Intensao;
 import br.com.fiap.arremate.msintensao.repositories.IntensaoRepository;
 import br.com.fiap.arremate.msintensao.service.IntensaoService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -34,12 +36,13 @@ public class IntensaoServiceImpl implements IntensaoService {
     }
 
     @Override
-    public IntensaoDTO cadastrar(IntensaoDTO intensaoDTO) {
-
+    public IntensaoDTO cadastrar(IntensaoDTO intensaoDTO) throws JsonProcessingException {
+        ObjectMapper mapperObj = new ObjectMapper();
         Intensao intensao = mapper.map(intensaoDTO, Intensao.class);
         intensao.setData(LocalDate.now());
         intensaoRepository.save(intensao);
-        rabbitTemplate.convertAndSend("direct-exchange-default", "queue-a-key", intensaoDTO);
+
+        rabbitTemplate.convertAndSend("direct-exchange-default", "queue-a-key",mapperObj.writeValueAsString(intensaoDTO.getDescricao()));
 
         return mapper.map(intensao, IntensaoDTO.class);
     }
