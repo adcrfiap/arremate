@@ -1,15 +1,20 @@
 package br.com.fiap.arremate.msproduto.entities;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.EqualsAndHashCode;
 
+import javax.persistence.*;
+
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
-@Document(collection = "modelos")
+@Entity
+@Table(name = "modelos")
 public class Modelo {
 
+    @EqualsAndHashCode.Include
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nome;
 }

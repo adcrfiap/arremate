@@ -5,15 +5,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.math.BigDecimal;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class Produto {
 
-    private String descricao;
+    private String nome;
 
-    private BigDecimal valorEstimado;
+    private CategoriaDTO categoria;
+
+    private MarcaDTO marca;
+
+    private ModeloDTO modelo;
+
 }

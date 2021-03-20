@@ -1,38 +1,36 @@
 package br.com.fiap.arremate.msintensao.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Generated;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
-import javax.persistence.Id;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity(name = "INTENSAO")
+@Entity
 public class Intensao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idIntensao;
 
-    private String idProduto;
-//    private Produto produto;
+    private Long idProduto;
 
     private String descricao;
 
     private BigDecimal valorEstimado;
 
-    private String idComprador;
-//    private Comprador comprador;
+    private Long idComprador;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate data;
 
 }

@@ -1,15 +1,24 @@
 package br.com.fiap.arremate.msproduto.entities;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.EqualsAndHashCode;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Data
-@Document(collection = "categorias")
+@Entity
+@Table(name = "categorias")
 public class Categoria {
 
+    @EqualsAndHashCode.Include
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nome;
 }

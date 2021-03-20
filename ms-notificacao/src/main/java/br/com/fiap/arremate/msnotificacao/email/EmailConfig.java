@@ -1,5 +1,6 @@
 package br.com.fiap.arremate.msnotificacao.email;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +22,7 @@ public class EmailConfig {
     @Value("${spring.mail.from}")
     private String from;
 
-    public void send( String text){
+    public void send(String text){
 
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
 

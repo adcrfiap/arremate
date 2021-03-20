@@ -1,15 +1,15 @@
 package br.com.fiap.arremate.msintensao.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@RequiredArgsConstructor
 @Configuration
 public class ExchangeConfig {
 
-    @Autowired
-    private Queue queueA;
+    private final Queue queue;
 
     @Bean
     public Exchange directExchange() {
@@ -21,7 +21,7 @@ public class ExchangeConfig {
     @Bean
     public Binding bindingQueueA() {
         return BindingBuilder
-                .bind(queueA)
+                .bind(queue)
                 .to(directExchange())
                 .with("arremate.routingkey")
                 .noargs();

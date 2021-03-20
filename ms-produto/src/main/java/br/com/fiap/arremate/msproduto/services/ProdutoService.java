@@ -1,20 +1,17 @@
 package br.com.fiap.arremate.msproduto.services;
 
+import br.com.fiap.arremate.msproduto.dtos.CadastroProdutoDTO;
 import br.com.fiap.arremate.msproduto.dtos.ProdutoDTO;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface ProdutoService {
 
-    ProdutoDTO cadastrar(ProdutoDTO produtoDTO);
-
-    ProdutoDTO atualizar(ProdutoDTO produtoDTO);
-
-    void excluir(Long idProduto);
-
-    ProdutoDTO pesquisarPorId(Long idProduto);
+    ProdutoDTO cadastrar(CadastroProdutoDTO cadastroProdutoDTO);
 
     List<ProdutoDTO> listarTodos();
+
+    ProdutoDTO pesquisarPorId(Long id);
+
+    void excluir(Long id);
 }

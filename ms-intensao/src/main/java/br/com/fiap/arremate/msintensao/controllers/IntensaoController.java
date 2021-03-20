@@ -2,6 +2,7 @@ package br.com.fiap.arremate.msintensao.controllers;
 
 import br.com.fiap.arremate.msintensao.dtos.request.IntensaoDTO;
 import br.com.fiap.arremate.msintensao.service.IntensaoService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +30,7 @@ public class IntensaoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public IntensaoDTO cadastrar(@RequestBody IntensaoDTO intensaoDTO){
+    public IntensaoDTO cadastrar(@RequestBody IntensaoDTO intensaoDTO) throws JsonProcessingException {
         return intensaoService.cadastrar(intensaoDTO);
     }
 

@@ -1,9 +1,7 @@
 package br.com.fiap.arremate.msproduto.repositories;
 
 import br.com.fiap.arremate.msproduto.entities.Produto;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public interface ProdutoRepository extends MongoRepository<Produto, String> {
+public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 }

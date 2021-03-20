@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,13 +15,13 @@ public class IntensaoDTO {
 
     private Long idIntensao;
 
-    private String idProduto;
+    private Long idProduto;
 
     private String descricao;
 
     private BigDecimal valorEstimado;
 
-    private String idComprador;
+    private Long idComprador;
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate data;
