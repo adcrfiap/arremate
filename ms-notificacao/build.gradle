@@ -21,6 +21,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 	implementation group: 'com.google.code.gson', name: 'gson', version: '2.7'
+	implementation 'com.github.seratch:jslack:1.5.6'
 }
 
 test {
