@@ -1,7 +1,13 @@
 package br.com.fiap.arremate.msintensao.dtos.response.comprador;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Data
 public class Comprador {
 

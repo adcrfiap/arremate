@@ -1,11 +1,15 @@
 package br.com.fiap.arremate.msintensao.dtos.response.produto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Categoria {
 
-    private String id;
+    private Long id;
 
     private String nome;
 }

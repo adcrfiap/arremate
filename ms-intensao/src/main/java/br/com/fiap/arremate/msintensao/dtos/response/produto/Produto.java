@@ -1,11 +1,17 @@
 package br.com.fiap.arremate.msintensao.dtos.response.produto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Data
 public class Produto {
 
-    private String id;
+    private Long id;
 
     private String nome;
 

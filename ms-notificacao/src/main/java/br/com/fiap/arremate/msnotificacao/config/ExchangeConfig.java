@@ -1,15 +1,15 @@
-package br.com.fiap.arremate.msnotificacao.config;
+package br.com.fiap.arremate.msintensao.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@RequiredArgsConstructor
 @Configuration
 public class ExchangeConfig {
 
-    @Autowired
-    private Queue queue;
+    private final Queue queue;
 
     @Bean
     public Exchange directExchange() {

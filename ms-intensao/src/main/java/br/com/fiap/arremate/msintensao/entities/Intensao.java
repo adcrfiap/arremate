@@ -1,5 +1,7 @@
 package br.com.fiap.arremate.msintensao.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +12,7 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
@@ -20,15 +23,14 @@ public class Intensao {
     private Long idIntensao;
 
     private Long idProduto;
-//    private Produto produto;
 
     private String descricao;
 
     private BigDecimal valorEstimado;
 
     private Long idComprador;
-//    private Comprador comprador;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate data;
 
 }

@@ -1,4 +1,4 @@
-package br.com.fiap.arremate.msnotificacao.config;
+package br.com.fiap.arremate.msintensao.config;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.QueueBuilder;
