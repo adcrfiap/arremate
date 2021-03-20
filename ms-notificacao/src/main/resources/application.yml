@@ -12,7 +12,7 @@ spring:
     default-encoding: UTF-8
     host: smtp.gmail.com
     username: dkchevis@gmail.com
-    password: Dk7164##@
+    password: <>
     port: 587
     subject: Intensao de compra
     to: dkchevi@hotmail.com
