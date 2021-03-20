@@ -6,7 +6,7 @@ spring:
     host: localhost
     port: 5672
     username: guest
-    password: admin
+    password: UDlz-IlIELwOH5nLssBj6rx7JtrSWubH
 
   mail:
     default-encoding: UTF-8
