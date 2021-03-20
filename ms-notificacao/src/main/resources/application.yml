@@ -1,12 +1,16 @@
 server:
-  port: 8082
+  port: 8092
 
 spring:
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: admin
+    host: rattlesnake.rmq.cloudamqp.com
+    username: lmmgtdet
     password: UDlz-IlIELwOH5nLssBj6rx7JtrSWubH
+    virtualhost: lmmgtdet
 
   mail:
     default-encoding: UTF-8
