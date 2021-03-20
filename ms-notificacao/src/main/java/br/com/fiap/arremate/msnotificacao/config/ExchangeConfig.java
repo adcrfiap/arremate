@@ -1,4 +1,4 @@
-package br.com.fiap.arremate.msintensao.config;
+package br.com.fiap.arremate.msnotificacao.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.*;
@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ExchangeConfig {
 
-    private final Queue queue;
-
     @Bean
     public Exchange directExchange() {
         return ExchangeBuilder
@@ -19,7 +17,7 @@ public class ExchangeConfig {
     }
 
     @Bean
-    public Binding bindingQueueA() {
+    public Binding bindingQueueA(Exchange exchange, Queue queue) {
         return BindingBuilder
                 .bind(queue)
                 .to(directExchange())

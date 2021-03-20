@@ -17,6 +17,8 @@ public class IntensaoCompra {
 
     private Comprador comprador;
 
+    private String descricao;
+
     private BigDecimal valorEstimado;
 
     @JsonFormat(pattern = "dd-MM-yyyy")

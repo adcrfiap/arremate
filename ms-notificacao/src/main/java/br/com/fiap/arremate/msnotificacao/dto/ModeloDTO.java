@@ -3,7 +3,7 @@ package br.com.fiap.arremate.msnotificacao.dto;
 import lombok.Data;
 
 @Data
-public class MarcaDTO {
+public class ModeloDTO {
 
     private String nome;
 

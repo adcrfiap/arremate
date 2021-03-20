@@ -1,33 +1,43 @@
 package br.com.fiap.arremate.msnotificacao.consumer;
 
 
+import br.com.fiap.arremate.msnotificacao.dto.IntensaoCompra;
 import br.com.fiap.arremate.msnotificacao.email.EmailConfig;
+import com.google.gson.Gson;
+import lombok.AllArgsConstructor;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@AllArgsConstructor
+@Component
 public class Consumer {
 
     private EmailConfig emailConfig;
 
+
     @RabbitListener(queues = "arremate.queue")
     private void enviarNotificacao(String notificacao){
-
-    System.out.println("Objeto da fila - > " + notificacao);
-        //        emailConfig.send(criarCorpoEmail(intensao));
+        System.out.println("Objeto da fila - > " + new Gson().fromJson(notificacao, IntensaoCompra.class));
+        emailConfig.send(criarCorpoEmail(new Gson().fromJson(notificacao, IntensaoCompra.class)));
     }
 
-//    private String criarCorpoEmail(Intensao intensao) {
-//        StringBuilder intensaoBuilder = new StringBuilder();
-//
-//        intensaoBuilder.append("Produto: " + intensao.getIdProduto())
-//                .append(System.lineSeparator())
-//                .append("Descrição: " + intensao.getDescricao())
-//                .append(System.lineSeparator())
-//                .append("Valor estimado: " + intensao.getValorEstimado())
-//                .append(System.lineSeparator())
-//                .append("Comprador: " + intensao.getIdComprador());
-//
-//        return intensaoBuilder.toString();
-//    }
+    private String criarCorpoEmail(IntensaoCompra intensao) {
+        StringBuilder intensaoBuilder = new StringBuilder();
+
+        intensaoBuilder.append("Intensão: " + intensao.getDescricao())
+                .append(System.lineSeparator())
+                .append("Produto: " + intensao.getProduto().getNome())
+                .append(System.lineSeparator())
+                .append("Categoria: " + intensao.getProduto().getCategoria().getNome())
+                .append(System.lineSeparator())
+                .append("Marca: " + intensao.getProduto().getMarca().getNome())
+                .append(System.lineSeparator())
+                .append("Modelo: " + intensao.getProduto().getModelo().getNome())
+                .append(System.lineSeparator())
+                .append("Valor estimado: " + intensao.getValorEstimado())
+                .append(System.lineSeparator())
+                .append("Comprador: " + intensao.getComprador().getNome());
+
+        return intensaoBuilder.toString();
+    }
 }
