@@ -10,14 +10,14 @@ spring:
       hibernate:
         ddl-auto: update
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: admin
+    host: rattlesnake.rmq.cloudamqp.com
+    username: lmmgtdet
+    password: UDlz-IlIELwOH5nLssBj6rx7JtrSWubH
+    virtualhost: lmmgtdet
 
 
 #  rabbitmq:
 #    host: localhost
-#    port: 15672
+#    port: 5672
 #    username: guest
 #    password: admin

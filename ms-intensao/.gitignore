@@ -36,4 +36,4 @@ out/
 ### VS Code ###
 .vscode/
 
-java_pid25728.hprof
+*.hprof
