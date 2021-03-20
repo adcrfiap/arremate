@@ -1,12 +1,11 @@
 package br.com.fiap.arremate.mscomprador.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
 
-@Data
 @Entity
+@Data
 public class Comprador {
 
     @Id
@@ -24,10 +23,10 @@ public class Comprador {
     private Usuario usuario;
 
     @OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinColumn(name = "endereco_id", nullable = false)
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 
     @OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinColumn(name = "contato_id", nullable = false)
+    @JoinColumn(name = "contato_id")
     private Contato contato;
 }
